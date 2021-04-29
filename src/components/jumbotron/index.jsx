@@ -1,11 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Container, Group, Frame, Item, Info, Title, SubTitle, Text, Image, Button,
+  Container,
+  Content,
+  Group,
+  FeatureGroup,
+  Frame,
+  Feature,
+  FeatureItem,
+  Item,
+  Info,
+  Title,
+  SubTitle,
+  Text,
+  Image,
+  Button,
 } from './styles/jumbotronStyled';
 
 const Jumbotron = ({ children }) => (
-  <Container>{children}</Container>
+  <Container>
+    <Content>
+      {children}
+    </Content>
+  </Container>
 );
 
 Jumbotron.propTypes = {
@@ -16,11 +33,24 @@ Jumbotron.defaultProps = {
   children: PropTypes.node,
 };
 
-Jumbotron.Group = ({ children }) => (
-  <Group>{children}</Group>
+Jumbotron.Group = ({ children, direction }) => (
+  <Group direction={direction}>{children}</Group>
 );
 
 Jumbotron.Group.propTypes = {
+  children: PropTypes.node.isRequired,
+  direction: PropTypes.string,
+};
+
+Jumbotron.Group.defaultProps = {
+  direction: 'column',
+};
+
+Jumbotron.FeatureGroup = ({ children }) => (
+  <FeatureGroup>{children}</FeatureGroup>
+);
+
+Jumbotron.FeatureGroup.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
@@ -44,18 +74,48 @@ Jumbotron.Frame.defaultProps = {
   direction: 'column',
 };
 
-Jumbotron.Item = ({ children, width }) => (
-  <Item width={width}>{children}</Item>
+Jumbotron.Feature = ({
+  children, bgColor, color, direction,
+}) => (
+  <Feature bgColor={bgColor} color={color} direction={direction}>{children}</Feature>
+);
+
+Jumbotron.Feature.propTypes = {
+  children: PropTypes.node,
+  bgColor: PropTypes.string,
+  color: PropTypes.string,
+  direction: PropTypes.string,
+};
+
+Jumbotron.Feature.defaultProps = {
+  children: PropTypes.node,
+  bgColor: '#ffffff',
+  color: '#000000',
+  direction: 'column',
+};
+
+Jumbotron.FeatureItem = ({ children }) => (
+  <FeatureItem>{children}</FeatureItem>
+);
+
+Jumbotron.FeatureItem.propTypes = {
+  children: PropTypes.node,
+};
+
+Jumbotron.FeatureItem.defaultProps = {
+  children: PropTypes.node,
+};
+
+Jumbotron.Item = ({ children }) => (
+  <Item>{children}</Item>
 );
 
 Jumbotron.Item.propTypes = {
   children: PropTypes.node,
-  width: PropTypes.number,
 };
 
 Jumbotron.Item.defaultProps = {
   children: PropTypes.node,
-  width: 100,
 };
 
 Jumbotron.Info = ({ children }) => (
