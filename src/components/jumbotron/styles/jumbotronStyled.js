@@ -4,12 +4,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction:column;
     align-items: center;
-    font-family: 'SoDoSans', Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    letter-spacing: -.01em;
-    font-feature-settings: "calt";
     text-align:center;
 `;
 

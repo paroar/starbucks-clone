@@ -9,3 +9,12 @@
     src: url(./fonts/SoDoSans-Bold.woff) format('woff');
     font-weight: bold;
 }
+
+body{
+    font-family: 'SoDoSans', Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    letter-spacing: -.01em;
+    font-feature-settings: "calt";
+}
